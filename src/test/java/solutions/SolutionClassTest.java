@@ -47,6 +47,7 @@ public class SolutionClassTest {
         var actualResult = implement.balance(19800, 2, 20000, 1, 2);
         Assertions.assertEquals(20597.96, actualResult);
     }
+    //test the reverse string function
     @Test
     public void testReverseString(){
         var actualResult = implement.reverseString("abcb");
@@ -61,5 +62,44 @@ public class SolutionClassTest {
     public void testReverseString3(){
         var actualResult = implement.reverseString("racecar");
         Assertions.assertEquals("racecar", actualResult);
+    }
+    //test the time class
+    Time t = new Time(1,30,20);
+    @Test
+    public void testTime(){
+        var actualResult = t.timeString();
+        Assertions.assertEquals("01:30:20", actualResult);
+    }
+    @Test
+    public void testScale(){
+        t.scale(40);
+        var actualResult = t.timeString();
+        Assertions.assertEquals("01:31:00", actualResult);
+    }
+
+    Time u = new Time(1,100,0);
+    @Test
+    public void testTime2(){
+        var actualResult = u.timeString();
+        Assertions.assertEquals("02:40:00", actualResult);
+    }
+    @Test
+    public void testScale2(){
+        u.scale(3600);
+        var actualResult = u.timeString();
+        Assertions.assertEquals("03:40:00", actualResult);
+    }
+
+    Time v = new Time(23,59,60);
+    @Test
+    public void testTime3(){
+        var actualResult = v.timeString();
+        Assertions.assertEquals("00:00:00", actualResult);
+    }
+    @Test
+    public void testScale3(){
+        v.scale(80);
+        var actualResult = v.timeString();
+        Assertions.assertEquals("00:01:20", actualResult);
     }
 }

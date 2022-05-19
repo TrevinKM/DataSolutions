@@ -77,17 +77,15 @@ public class SolutionClasses {
     }
 
 
-    public String reverseString(String string){
-        if (string.isEmpty()){
+    public String reverseString(String string) {
+        if (string.isEmpty()) {
             return "";
         }
-        if (string.length() == 1){
+        if (string.length() == 1) {
             return string;
         } else {
-            return string.substring(string.length()-1) + reverseString(string.substring(0,string.length()-1));
+            return string.substring(string.length() - 1) + reverseString(string.substring(0, string.length() - 1));
         }
-
     }
 
-    
 }
