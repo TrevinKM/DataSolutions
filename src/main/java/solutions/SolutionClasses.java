@@ -31,7 +31,6 @@ public class SolutionClasses {
             if(lettersFound.containsKey(currentChar)){
                 if (currentChar == lastChar){
                     accumulator += 1;
-                    System.out.println(accumulator);
                     if (accumulator >= lettersFound.get(currentChar)){
                         lettersFound.put(currentChar, accumulator);
                     }
@@ -56,4 +55,39 @@ public class SolutionClasses {
         }
         return result;
     }
+
+    public  double balance(int openingSum, float interestRate, float taxFreeLimit, float taxRate, int numMonths){
+
+        float interest = 0;
+        float totalSavings = openingSum;
+        float monthlyTax;
+
+        interestRate = interestRate/100;
+        taxRate = taxRate/100;
+
+        for (int i = 0; i<numMonths; i++){
+            interest = totalSavings*interestRate;
+            if (totalSavings > taxFreeLimit){
+                monthlyTax = (totalSavings-taxFreeLimit)*taxRate;
+                totalSavings -= monthlyTax;
+            }
+            totalSavings += interest;
+        }
+        return Math.round(totalSavings*100.0)/100.0;
+    }
+
+
+    public String reverseString(String string){
+        if (string.isEmpty()){
+            return "";
+        }
+        if (string.length() == 1){
+            return string;
+        } else {
+            return string.substring(string.length()-1) + reverseString(string.substring(0,string.length()-1));
+        }
+
+    }
+
+    
 }
